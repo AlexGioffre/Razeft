@@ -18,7 +18,7 @@ const profile = require('./routes/api/profile');
 
 const app = express();
 
-let whitelist = [ 'https://razeft.herokuapp.com/']
+let whitelist = [ 'https://razeftv.herokuapp.com/']
 let corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
