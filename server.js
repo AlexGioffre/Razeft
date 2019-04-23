@@ -18,21 +18,11 @@ const profile = require('./routes/api/profile');
 
 const app = express();
 
-let whitelist = [ 'https://razeftv.herokuapp.com/']
-let corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-if(process.env.NODE_ENV === 'production'){
-  app.use(cors(corsOptions));
-} else {
+
+
+
   app.use(cors());
-}
+
 
 app.use(helmet());
 app.use(morgan('combined'));
