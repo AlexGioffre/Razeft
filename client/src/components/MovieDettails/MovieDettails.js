@@ -11,7 +11,6 @@ class MovieDettails extends Component {
         setTimeout(() => {
             main.classList.add("container_show-active");
         },50);
-        console.log(this.props)
     }
 
 
@@ -31,7 +30,7 @@ class MovieDettails extends Component {
                         <source media="(max-width: 780px)" srcSet={`https://image.tmdb.org/t/p/w780${this.props.element.dettail.backdrop_path}`}/>
                         <img className="show_image"  src={`https://image.tmdb.org/t/p/original${this.props.element.dettail.backdrop_path}`} alt={this.props.element.dettail.title} />
                         {
-                            this.props.element.dettail.title.length <= 20 ?
+                            this.props.element.dettail.title.length <= 25 ?
                             <div className="show_title">
                                 <h1>{this.props.element.dettail.title}</h1>
                                 {this.props.element.dettail.title === this.props.element.dettail.original_title ? null : <h2>{this.props.element.dettail.original_title}</h2>}
@@ -47,7 +46,7 @@ class MovieDettails extends Component {
                         <source media="(max-width: 780px)" srcSet={`https://via.placeholder.com/800x700`}/>
                         <img className="show_image"  src={`https://via.placeholder.com/1920x1080`} alt={this.props.element.dettail.title} />
                         {
-                            this.props.element.dettail.title.length <= 20 ?
+                            this.props.element.dettail.title.length <= 25 ?
                             <div className="show_title">
                                 <h1>{this.props.element.dettail.title}</h1>
                                 {this.props.element.dettail.title === this.props.element.dettail.original_title ? null : <h2>{this.props.element.dettail.original_title}</h2>}
