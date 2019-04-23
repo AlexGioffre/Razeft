@@ -42,7 +42,6 @@ class Main extends Component  {
                     <NavLink  to={`/${whatShow}/${this.props.headerslide[0].id}`}> <button className="btn_card">See More <i className="far fa-play-circle"></i></button></NavLink>
                 </div>
             </div>
-            
             <section>
                 <h1 className="title_section">Popular Tv Series</h1>
                 <Gallery data={this.props.tvSeries} media="tv"/>

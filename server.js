@@ -21,7 +21,7 @@ const app = express();
 
 
 
-
+app.use(cors());
 
 app.use(helmet());
 app.use(morgan('combined'));
@@ -40,16 +40,11 @@ app.use('/api/signin', login);
 app.use('/api/profile', profile);
 
 if(process.env.NODE_ENV === 'production'){
-  app.use(cors({
-    origin: ["https://razeftv.herokuapp.com/"],
-    optionsSuccessStatus: 200
-  }))
+
   app.use(express.static(path.join(__dirname, 'client/build')))
   app.get('*', (req, res) => {
       res.sendFile(path.join(__dirname + '/client/build/index.html'))
   });
-} else {
-  app.use(cors())
 }
 
 
