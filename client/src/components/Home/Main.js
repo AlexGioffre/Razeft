@@ -14,7 +14,6 @@ class Main extends Component  {
     }
 
     render(){
-        console.log(this.props.headerslide)
         let string = "";
         if(this.props.headerslide[0].overview.lenght <= 100){
         string = this.props.headerslide[0].overview;

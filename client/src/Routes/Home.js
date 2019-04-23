@@ -67,7 +67,6 @@ class Home extends Component  {
   };
 
   render() {
-    console.log(this.props.data.shows);
     return(
       !this.state.isLoad ? <h1 className="loader">Loading</h1> :  <Main headerslide={this.state.headerSlide} isTv={this.state.isTvSeries} isMovies={this.state.isMovies} tvSeries={this.props.data.shows.popularSeries} movies={this.props.data.shows.popularMovies} horror={this.props.data.shows.horrorMovies} anime={this.props.data.shows.anime}/>
     )
