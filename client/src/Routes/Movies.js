@@ -40,7 +40,6 @@ class MoviesPage extends Component {
 
 
     render() {
-        console.log(this.props.movies);
         return (
             !this.state.isLoad ? <h1 className="loader">Loading</h1> : <Movies element={this.props.data.movies}/>
         )

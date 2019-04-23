@@ -10,7 +10,6 @@ class TvSeriesPage extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.data)
         this.props.onGetSeries();
     }
 

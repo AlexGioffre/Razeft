@@ -22,7 +22,6 @@ class MovieDettailsRouter extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             !this.state.isLoad ? <h1>Loading...</h1> : <MovieDettails element={this.props.data.movie}/>
         )
