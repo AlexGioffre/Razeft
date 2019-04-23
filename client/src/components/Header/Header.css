@@ -1,0 +1,14 @@
+.header {
+    width: 100%;
+}
+
+.header-slide{
+    height: 70vh;
+    position: relative;
+}
+
+@media  (min-width: 501px) {
+    .header-slide{
+        height: 85vh;
+    }
+}

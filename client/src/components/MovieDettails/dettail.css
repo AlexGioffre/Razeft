@@ -1,0 +1,326 @@
+.container_show{
+    width: 100vw;
+    height: auto;
+    margin-bottom: 20rem;
+    opacity: 0;
+    transition: all .5s ease-in;
+}
+
+.container_show-active{
+    opacity: 1;
+    transition:  all 1s ease-in;
+}
+
+.container_show .show_image{
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.container_show picture{
+    position: relative;
+}
+
+.container_show picture .show_title{
+    position: absolute;
+    width: 100vw;
+    top: -5.4rem;
+    height: 5rem;
+    background: rgba(0, 0, 0, .8);
+    padding-left: .5rem;
+}
+
+.container_show picture .show_title h1{
+    color: #01d277;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
+.container_show picture .show_title h2 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.container_show picture .show_title-m h1{
+    color: #01d277;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.container_show picture .show_title-m h2 {
+    font-size: 1rem;
+}
+
+.show_section{
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    padding: 0 3rem;
+}
+
+.show_section .show_section--title{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+    position: relative;
+    border-bottom: 1px solid #fff;
+}
+
+.show_section .show_section--title::after{
+    content: "";
+    position: absolute;
+    top: 1.3rem;
+    right: .5rem;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    transition: all .5s ease-in;
+}
+
+.show_section--active .show_section--title::after{
+    border-bottom-color: #01d277;
+    transform: rotate(180deg);
+    transition: all .5s ease-in;
+}
+
+.show_section .show_section_content-text,
+.show_section .show_section_content-text-m,
+.show_section .show_section_content-text-error,
+.show_section .show_section_content-gallery,
+.show_section .show_section_content-gallery-poster,
+.show_section .show_section_content-gallery-backdrop,
+.show_section .show_section_content-gallery-video {
+    border: 1px solid #fff;
+    border-top: 0;
+    height: 0;
+    overflow: auto;
+    transition: all .5s ease-in;
+}
+
+.show_section--active .show_section_content-text{
+    height: 10rem;
+    padding: 1rem;
+    text-align: justify;
+    transition: all .5s ease-in;
+    font-size: 1.1rem;
+}
+
+.show_section--active .show_section_content-text-error{
+    height: 5rem;
+}
+
+.show_section--active .show_section_content-text-m{
+    height: 5rem;
+    padding: 1rem;
+    text-align: justify;
+    transition: all .5s ease-in;
+    font-size: 1.1rem;
+}
+
+.show_section--active .show_section_content-gallery{
+    height: 40rem;
+    overflow: hidden;
+    transition: all .5s ease-in;
+}
+
+.show_section--active .show_section_content-gallery-poster{
+    overflow: hidden;
+    height: 50rem;
+    transition: all .5s ease-in;
+}
+
+.show_section--active .show_section_content-gallery-backdrop{
+    overflow: hidden;
+    height: 20rem;
+    transition: all .5s ease-in;
+}
+
+.show_section--active .show_section_content-gallery-video{
+    overflow: hidden;
+    height: 30rem;
+    transition: all .5s ease-in;
+}
+
+.photo_cast{
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+}
+
+.show_section_content-gallery picture{
+    position: relative;
+}
+
+.show_section_content-gallery picture .info_cast{
+    position: absolute;
+    top: -1.6rem;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    text-transform: uppercase;
+    padding-left: .4rem;
+    font-size: .8rem;
+}
+
+.poster_element {
+    width: 100%;
+    height: 50rem;
+    object-fit: contain;
+}
+
+.backdrop_element {
+    width: 100%;
+    height: 20rem;
+    object-fit: contain;
+}
+
+.video{
+    width: 92%;
+    margin-left: 1.3rem;
+    height: 30rem;
+}
+
+.error_data{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mt{
+    margin-top: 4rem;
+}
+
+@media (max-width: 360px){
+    .container_show picture .show_title-m h1{
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 400px){
+    .container_show picture .show_title-m{
+        text-align: center;
+    }
+
+   
+}
+
+@media (min-width: 450px) and (max-width: 600px){
+    .photo_cast{
+        object-position: 0 50%;
+    }
+}
+
+@media (min-width: 500px){
+    .container_show picture .show_title-m h1{
+        font-size: 1.6rem;
+    }
+    .container_show picture .show_title-m h2,
+    .container_show picture .show_title h2{
+        font-size: 1.2rem;
+    }
+    .show_section--active .show_section_content-text{
+        font-size: 1.2rem;
+    }
+    .show_section--active .show_section_content-text-m{
+        font-size: 1.2rem;
+    }
+
+}
+
+
+
+@media (min-width: 760px){
+
+    .container_show .show_image{
+        object-position: 20% 20%;
+    }
+
+    .container_show picture .show_title-m h1{
+        font-size: 2rem;
+    }
+
+    .show_section--active .show_section_content-gallery-video{
+        height: 36rem;
+    }
+
+    .show_section--active .show_section_content-gallery{
+        height: 80rem;
+    }
+
+    .photo_cast{
+        height: 80rem;
+    }
+
+    .video{
+        width: 96%;
+        margin-top: 1rem;
+        height: 34rem;
+
+    }
+
+    .show_section--active .show_section_content-text{
+        font-size: 1.4rem;
+    }
+
+    .show_section--active .show_section_content-text-m{
+        font-size: 1.3rem;
+    }
+
+    .show_section--active .show_section_content-gallery-backdrop{
+        height: 40rem;
+    }
+
+    .backdrop_element {
+        height: 40rem;
+    }
+    
+}
+
+
+@media (min-width: 1024px){
+
+    .container_show picture .show_title{
+        top: -6.4rem;
+        height: 6rem;
+    }
+
+    .container_show picture .show_title h1,
+    .container_show picture .show_title-m h1{
+        font-size: 2.5rem;
+    }
+
+    .show_section--active .show_section_content-gallery-video{
+        height: 50rem;
+    }
+
+    .video {
+        margin-left: .5rem;
+        height: 48rem;
+    }
+
+    .show_section--active .show_section_content-text{
+        font-size: 1.6rem;
+    }
+
+    .show_section--active .show_section_content-text-m{
+        font-size: 1.6rem;
+    }
+
+    .show_section--active .show_section_content-gallery{
+        height: 50rem;
+    }
+
+    .photo_cast{
+        height: 50rem;
+    }
+}
+
+@media (min-width: 1700px){
+    .container_show .show_image{
+        max-height: 700px;
+    }
+}
