@@ -24,7 +24,7 @@ class TvDettailsRoute extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <h1>Loading...</h1> : <TvDettails messlikeSeries={this.props.messlikeSeries} likeSeries={this.props.likeSeries} auth={this.props.auth} element={this.props.data.series}/>
+            !this.state.isLoad ? <h1>Loading...</h1> : <TvDettails messlikeSeries={this.props.messlikeSeries} loadUser={this.props.loadUser} likeSeries={this.props.likeSeries} auth={this.props.auth} element={this.props.data.series}/>
         )
     }
 }
