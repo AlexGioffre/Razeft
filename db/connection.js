@@ -6,9 +6,9 @@ const database = knexConnect({
         connectionString: process.env.DATABASE_URL,
         ssl: true
         // host: '127.0.0.1',
-        // user: 'postgres',
-        // password: 'Bakuman91',
-        // database: 'Razeft-db'
+        // user: '',
+        // password: '',
+        // database: ''
     }
 });
 
