@@ -25,7 +25,7 @@ const getUser = (req, res) => {
                 id: user[0].id,
                 name: user[0].name,
                 joined: date,
-                tvSeries: user[0].tvseries,
+                tvseries: user[0].tvseries,
                 movies: user[0].movies
             })
         } else {

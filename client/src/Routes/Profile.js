@@ -56,8 +56,8 @@ class Profile extends Component {
 
     loopSeries = () => {
         if(this.props.auth.user){
-            console.log(this.props.auth.user)
-            if(this.props.auth.user.tvseries === null || this.props.auth.user.tvseries === undefined ){
+            console.log(this.props.auth.user.tvseries)
+            if(this.props.auth.user.tvseries === null){
                 this.setState({series: [], load: true});
                 return -1;
             }
