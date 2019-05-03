@@ -17,14 +17,13 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props.auth.user);
         if(this.props.auth.user){
             this.loopMovie();
         }
     }
 
     loopMovie = () => {
-        if(this.props.auth.user.movies === null  ){
+        if(this.props.auth.user.movies === null || this.props.auth.user.movies === undefined  ){
             this.setState({movies: []});
             this.loopSeries();
             return -1;
@@ -51,7 +50,7 @@ class Profile extends Component {
     }
 
     loopSeries = () => {
-        if(this.props.auth.user.tvseries === null ){
+        if(this.props.auth.user.tvseries === null || this.props.auth.user.tvseries === undefined ){
             this.setState({series: [], load: true});
             return -1;
         }
