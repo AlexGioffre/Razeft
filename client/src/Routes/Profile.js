@@ -19,13 +19,13 @@ class Profile extends Component {
     componentDidMount(){
         if(this.props.auth.user){
             console.log(this.props.auth.user);
+            this.setState({i: 0});
             this.loopMovie();
         }
     }
 
     loopMovie = () => {
         if(this.props.auth.user){
-            this.setState({i: 0})
             if(this.props.auth.user.movies === null || this.props.auth.user.movies === undefined  ){
                 this.setState({movies: [], load: false, y: 0});
                 this.loopSeries();
