@@ -46,7 +46,7 @@ class MovieDettails extends Component {
     checkMovie = () => {
         if(this.props.auth.user){
 
-            if(this.props.auth.user.movies === null){
+            if(this.props.auth.user.movies === null ||this.props.auth.user.movies === undefined){
                 return this.setState({onList: false})
             }
             if(this.props.auth.user.movies !== null){

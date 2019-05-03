@@ -11,7 +11,6 @@ class TvDettails extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props.auth);
         var main = document.querySelector(".container_show");
         setTimeout(() => {
             main.classList.add("container_show-active");
@@ -36,7 +35,7 @@ class TvDettails extends Component {
     checkSeries = () => {
         if(this.props.auth.user){
 
-            if(this.props.auth.user.tvseries === null){
+            if(this.props.auth.user.tvseries === null || this.props.auth.user.tvseries === undefined){
                 return this.setState({onList: false})
             }
             if(this.props.auth.user.tvseries !== null){
