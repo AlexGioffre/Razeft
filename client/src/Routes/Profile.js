@@ -20,7 +20,7 @@ class Profile extends Component {
         if(this.props.auth.user){
             this.setState({i: 0});
             this.loopMovie();
-            this.loopSeries();
+
         }
     }
 
@@ -29,10 +29,12 @@ class Profile extends Component {
 
             if(this.props.auth.user.movies === null || this.props.auth.user.movies === undefined  ){
                 this.setState({movies: [], load: false, y: 0});
+                this.loopSeries();
                 return -1;
             }
             if(  this.state.i === this.props.auth.user.movies.length ){
                 this.setState({movies: this.state.movies});
+                this.loopSeries();
                 return -1;
             }
 
@@ -55,15 +57,15 @@ class Profile extends Component {
     loopSeries = () => {
         if(this.props.auth.user){
             console.log(this.props.auth.user)
-            if(this.props.auth.user.tvSeries === null || this.props.auth.user.tvSeries === undefined ){
+            if(this.props.auth.user.tvseries === null || this.props.auth.user.tvseries === undefined ){
                 this.setState({series: [], load: true});
                 return -1;
             }
-            if( this.state.y === this.props.auth.user.tvSeries.length){
+            if( this.state.y === this.props.auth.user.tvseries.length){
                 this.setState({series: this.state.series, load: true});
                 return -1;
             }
-            fetch(`/api/seriesId/${this.props.auth.user.tvSeries[this.state.y]}`,{
+            fetch(`/api/seriesId/${this.props.auth.user.tvseries[this.state.y]}`,{
                 headers : {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
