@@ -17,6 +17,7 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+        console.log(this.props.auth.user);
         if(this.props.auth.user){
             this.loopMovie();
         }

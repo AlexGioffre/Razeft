@@ -36,11 +36,11 @@ class TvDettails extends Component {
     checkSeries = () => {
         if(this.props.auth.user){
 
-            if(this.props.auth.user.tvSeries === null){
+            if(this.props.auth.user.tvseries === null){
                 return this.setState({onList: false})
             }
-            if(this.props.auth.user.tvSeries !== null){
-                this.props.auth.user.tvSeries.forEach(series => {
+            if(this.props.auth.user.tvseries !== null){
+                this.props.auth.user.tvseries.forEach(series => {
                     if(Number(series) === this.props.element.dettail.id){
                         return this.setState({onList: true});
                     }
