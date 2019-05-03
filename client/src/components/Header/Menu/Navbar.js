@@ -37,7 +37,7 @@ class Navbar extends Component {
                     </div>
                     <div className="account">
                             {   this.props.auth.isAuthenticated ?
-                                <li className="account_nav" onClick={this.props.logout}>Logout</li> :
+                                <li className="account_nav logout" onClick={this.props.logout}>Logout</li> :
                                 <li><NavLink to="/login" exact><p className="account_nav">Login</p></NavLink></li>
                             }
                     </div>

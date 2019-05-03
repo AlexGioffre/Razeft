@@ -121,6 +121,9 @@
 .header .menu .menu_dinamic .account img {
   border-radius: 50%;
 }
+.logout{
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
 
