@@ -40,7 +40,7 @@ class TvSeriesPage extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <h1 className="loader">Loading</h1> : <TvSeries element={this.props.data.series} />
+            !this.state.isLoad ? <h1 className="loader">Loading</h1> : <TvSeries  element={this.props.data.series} />
         )
     }
 }

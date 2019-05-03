@@ -7,7 +7,7 @@ const responsive = {
     0: { items: 1 },
     400: {items: 1},
     600: { items: 2 },
-    1024: { items: 4 },
+    1024: { items: 2 },
 };
 
 
@@ -17,11 +17,13 @@ const GalleryVideos = ({data}) => {
   
   const handleOnDragStart = e => e.preventDefault();
   return (
-    <AliceCarousel mouseDragEnabled  responsive={responsive} buttonsDisabled={true} dotsDisabled={true}>
+    <AliceCarousel mouseDragEnabled={false}  responsive={responsive}   dotsDisabled={true}>
       {
         data.map((ele, index) => {
           return(
-            <iframe onDragStart={handleOnDragStart} className="video" key={index} title={ele.name} src={`https://www.youtube.com/embed/${ele.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <div key={index} onDragStart={handleOnDragStart}>
+              <iframe className="video"  title={ele.name} src={`https://www.youtube.com/embed/${ele.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
           )
         })
       }

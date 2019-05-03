@@ -94,7 +94,7 @@ const likeMovie = (req, res ) => {
                 db('users').where({id}).update({
                     movies: db.raw('array_append(movies, ?)', [req.params.id])
                 }).then(user => {
-                    res.json({mes: 'Add on list'})
+                    res.json('Add on list, click on icon to see your favorite shows')
                 })
             } else {
                 let check = false;
@@ -104,7 +104,7 @@ const likeMovie = (req, res ) => {
                         db('users').where('id', '=', req.user.id).update({
                             movies: db.raw('array_remove(movies, ?)', [req.params.id])
                         }).then(user => {
-                            return res.json({mes: 'Delete from list'})
+                            return res.json('Delete from list, click on icon to see your favorite shows')
                         })
                     } else{
                         check = true;
@@ -115,7 +115,7 @@ const likeMovie = (req, res ) => {
                     db('users').where('id', '=', req.user.id).update({
                         movies: db.raw('array_append(movies, ?)', [req.params.id])
                     }).then(user => {
-                        res.json({mes: 'Add on list'})
+                        res.json('Add on list, click on icon to see your favorite shows')
                     })
                 }
             }

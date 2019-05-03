@@ -6,6 +6,7 @@
     transition: all .5s ease-in;
 }
 
+
 .container_show-active{
     opacity: 1;
     transition:  all 1s ease-in;
@@ -20,6 +21,93 @@
 
 .container_show picture{
     position: relative;
+}
+
+.container_show .modal_bg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: -100;
+    width: 0;
+    height: 0;
+    background: rgba(0, 0, 0, .8);
+    transition: all .1s ease-in;
+}
+
+.container_show .modal_bg-active{
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    opacity: 1;
+    transition:  all .1s ease-in;
+}
+
+.container_show .modal {
+    padding: 2rem;
+    width: 60vw;
+    height: 15rem;
+    opacity: 0;
+    border: 1px solid #01d277;
+    border-radius: 4px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    transition: all 1s ease-in;
+    background: #333;
+}
+
+.container_show .modal_bg-active .modal{
+    opacity: 1;
+    transition: all 1s ease-in;
+}
+
+.container_show .modal #message {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.container_show .modal button {
+    border: 1px solid #01d277;
+    background: transparent;
+    padding: .75rem 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+    color: #01d277;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container_show picture .btn_list {
+    position: absolute;
+    right: 1rem;
+    top:-19rem;
+    border: none;
+    background: #333;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #01d277;
+    font-size: 1rem;
+    padding: .75rem .75rem;
+    transition: all .25s ease-in;
+}
+
+.container_show picture .btn_list:focus{
+    outline: none;
+}
+
+.container_show picture .btn_list:active{
+    border: 1px solid #01d277;
+    background: #fff;
+    transition: all .25s ease-in;
+    outline: none;
 }
 
 .container_show picture .show_title{
@@ -178,8 +266,7 @@
 }
 
 .video{
-    width: 92%;
-    margin-left: 1.3rem;
+    width: 100%;
     height: 30rem;
 }
 
@@ -256,7 +343,7 @@
     }
 
     .video{
-        width: 96%;
+        width: 100%;
         margin-top: 1rem;
         height: 34rem;
 

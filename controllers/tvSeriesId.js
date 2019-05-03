@@ -94,7 +94,7 @@ const likeSeries = (req, res ) => {
             db('users').where({id}).update({
                 tvseries: db.raw('array_append(tvseries, ?)', [req.params.id])
             }).then(user => {
-                res.json({msg: 'TV series add on list'})
+                res.json('Add on list, click on icon to see your favorite shows')
             })
         } else {
             let check = false;
@@ -104,7 +104,7 @@ const likeSeries = (req, res ) => {
                     db('users').where({id}).update({
                         tvseries: db.raw('array_remove(tvseries, ?)', [req.params.id])
                     }).then(user => {
-                        return res.json({msg: 'Delete from list'})
+                        return res.json('Delete from list, click on icon to see your favorite shows')
                     })
                 } else{
                     check = true;
@@ -115,7 +115,7 @@ const likeSeries = (req, res ) => {
                 db('users').where({id}).update({
                     tvseries: db.raw('array_append(tvseries, ?)', [req.params.id])
                 }).then(user => {
-                    res.json({msg: 'TV series add on list'})
+                    res.json('Add on list, click on icon to see your favorite shows')
                 })
             }
         }

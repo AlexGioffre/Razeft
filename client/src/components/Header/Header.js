@@ -5,9 +5,9 @@ import './Header.css';
 import Navbar from './Menu/Navbar';
 
 
-const Header = () => {
+const Header = ({auth, logout}) => {
     return(
-        <Navbar />
+        <Navbar auth={auth} logout={logout}/>
     )
 };
 

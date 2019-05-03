@@ -6,11 +6,34 @@ import GalleryVideos from '../GalleryDettail/GalleryVideos';
 import './dettail.css';
 
 class MovieDettails extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            onList: false
+        }
+    }
+
     componentDidMount() {
         var main = document.querySelector(".container_show");
         setTimeout(() => {
             main.classList.add("container_show-active");
         },50);
+        this.checkMovie();
+    }
+
+    componentDidUpdate(prevProps) {
+        const {messlikeMovie} = this.props;
+        if(messlikeMovie.msg !== prevProps.messlikeMovie.msg){
+            let html = document.querySelector("html");
+            let bg_modal = document.querySelector(".modal_bg");
+            let mess = document.getElementById('message');
+            html.style.overflow = "hidden";
+            mess.innerText = messlikeMovie.msg;
+            bg_modal.classList.add('modal_bg-active');
+
+        }
+
     }
 
 
@@ -20,12 +43,54 @@ class MovieDettails extends Component {
 
     }
 
+    checkMovie = () => {
+        if(this.props.auth.user){
+
+            if(this.props.auth.user.movies === null){
+                return this.setState({onList: false})
+            }
+            if(this.props.auth.user.movies !== null){
+                this.props.auth.user.movies.forEach(movie => {
+                    if(Number(movie) === this.props.element.dettail.id){
+                        return this.setState({onList: true});
+                    }
+                })
+            }
+        }
+    }
+
+    like = () => {
+        if(this.props.auth.user){
+            this.props.likeMovie(this.props.element.dettail.id);
+            this.setState({onList: !this.state.onList});
+        }
+    }
+
+    closeModal = () => {
+        let html = document.querySelector("html");
+        let bg_modal = document.querySelector(".modal_bg");
+        let mess = document.getElementById('message');
+
+        mess.innerText = "";
+        bg_modal.classList.remove('modal_bg-active');
+        html.style.overflowY = "auto";
+    }
+
     render() {
         return(
             <div className="container_show">
                 {
-                    this.props.element.dettail.backdrop_path != null ? 
+                    this.props.auth.user ?
+                    <div className="modal_bg"><div className="modal"><p id="message"></p> <button onClick={this.closeModal}>ok</button></div></div> : null
+                }
+                {
+                    this.props.element.dettail.backdrop_path != null ?
                     <picture>
+                        {
+                            this.props.auth.user ?
+                            !this.state.onList ? <button className="btn_list" onClick={this.like}><i className="fas fa-plus"></i></button> : <button className="btn_list" onClick={this.like}><i className="fas fa-trash-alt"></i></button> 
+                            : null
+                        }
                         <source  media="(max-width: 500px)" srcSet={`https://image.tmdb.org/t/p/w500${this.props.element.dettail.backdrop_path}`} />
                         <source media="(max-width: 780px)" srcSet={`https://image.tmdb.org/t/p/w780${this.props.element.dettail.backdrop_path}`}/>
                         <img className="show_image"  src={`https://image.tmdb.org/t/p/original${this.props.element.dettail.backdrop_path}`} alt={this.props.element.dettail.title} />
@@ -42,6 +107,11 @@ class MovieDettails extends Component {
                         }
                     </picture> :
                     <picture>
+                    {
+                        this.props.auth.user ?
+                        !this.state.onList ? <button className="btn_list" onClick={this.like}><i className="fas fa-plus"></i></button> : <button className="btn_list" onClick={this.like}><i className="fas fa-trash-alt"></i></button>
+                        : null
+                    }
                         <source  media="(max-width: 500px)" srcSet={`https://via.placeholder.com/500x700`} />
                         <source media="(max-width: 780px)" srcSet={`https://via.placeholder.com/800x700`}/>
                         <img className="show_image"  src={`https://via.placeholder.com/1920x1080`} alt={this.props.element.dettail.title} />

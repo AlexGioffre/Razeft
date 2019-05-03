@@ -32,23 +32,19 @@ const loginValid = (req, res) => {
                             if(err) throw err;
                             res.json({
                                 token,
-                                user: {
-                                    id: user[0].id,
-                                    name: user[0].name,
-                                    email: user[0].email
-                                }
+                                user: user[0]
                             })
                         }
                     );
                 })
-                .catch(err => res.status(400).json({error: 'Impossible get User'}));
+                .catch(err => res.status(400).json('Impossible get User'));
            } else {
-               res.status(400).json({error: 'Wrong Credentials'})
+               return res.status(400).json('Email or Password wrong, try again!')
            }
         })
-        .catch(err => res.status(400).json({error: 'User not exist'}));
+        .catch(err => res.status(400).json('User not exist'));
     } else {
-        Promise.reject('Error');
+        return res.status(400).json('Not valid Email');
     }
 }
 

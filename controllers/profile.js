@@ -1,5 +1,6 @@
 const db = require('../db/connection');
-
+const keys = require('../config/index');
+const axios = require('axios');
 
 const getUser = (req, res) => {
     const { id } = req.user;

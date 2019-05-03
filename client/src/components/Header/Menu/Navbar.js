@@ -26,20 +26,25 @@ class Navbar extends Component {
                 </ul>
                 <nav className="menu_dinamic">
                     <div className="account">
-                        {/*<NavLink to="/" exact>
-                            <picture>
-                                <source  media="(max-width: 500px)" srcSet={`https://via.placeholder.com/30`} />
-                                <source media="(max-width: 780px)" srcSet={`https://via.placeholder.com/40`}/>
-                                <source media="(max-width: 1280px)" srcSet={`https://via.placeholder.com/40`} />
-                                <img src="https://via.placeholder.com/40" alt="icon" />
-                            </picture>
-                            <p>name</p>
-                        </NavLink> */}
-                        <NavLink to="/register" exact><p className="account_nav">Register</p></NavLink>
+                        {
+                            this.props.auth.isAuthenticated ?
+                            <NavLink to="/profile" exact>
+                                <picture>
+                                    <source  media="(max-width: 500px)" srcSet={`https://via.placeholder.com/30`} />
+                                    <source media="(max-width: 780px)" srcSet={`https://via.placeholder.com/40`}/>
+                                    <source media="(max-width: 1280px)" srcSet={`https://via.placeholder.com/40`} />
+                                    <img src="https://via.placeholder.com/40" alt="icon" />
+                                </picture>
+                                <p>{this.props.auth.user.name}</p>
+                            </NavLink> :
+                            <NavLink to="/register" exact><p className="account_nav">Register</p></NavLink>
+                        }
                     </div>
                     <div className="account">
-                            {/* <li><a href="https://google.com">Logout</a></li> */}
-                            <li><NavLink to="/login" exact><p className="account_nav">Login</p></NavLink></li>
+                            {   this.props.auth.isAuthenticated ?
+                                <li className="account_nav" onClick={this.props.logout}>Logout</li> :
+                                <li><NavLink to="/login" exact><p className="account_nav">Login</p></NavLink></li>
+                            }
                     </div>
                     <div className="search">
                         <button onClick={this.searchButton} id="searchIcon"><i className="fas fa-search fa-2x"></i></button>
