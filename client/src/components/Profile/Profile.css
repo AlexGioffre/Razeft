@@ -45,7 +45,7 @@
     content: "<";
     position: absolute;
     top: 50%;
-    left: 1rem;
+    left: 3rem;
     color: #fff;
     font-size: 2rem;
     background: #333;
@@ -63,7 +63,7 @@
     content: ">";
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: 3rem;
     color: #fff;
     font-size: 2rem;
     background: #333;
