@@ -74,55 +74,32 @@ class TvDettails extends Component {
     render() {
         return(
             <div className="container_show">
+            <div className="container_show">
+            {
+                this.props.auth.user ?
+                <div className="modal_bg"><div className="modal"><p id="message"></p> <button onClick={this.closeModal}>ok</button></div></div> : null
+            }
+            {
+                this.props.auth.user ?
+                !this.state.onList ? <button className="btn_list" onClick={this.like}><i className="fas fa-plus"></i></button> : <button className="btn_list" onClick={this.like}><i className="fas fa-trash-alt"></i></button> 
+                : null
+            }
+            <picture>
+                <source  media="(max-width: 500px)" srcSet={this.props.element.dettail.backdrop_path ? `https://image.tmdb.org/t/p/w500${this.props.element.dettail.backdrop_path}` : "https://via.placeholder.com/500x700" } />
+                <source media="(max-width: 780px)" srcSet={this.props.element.dettail.backdrop_path ?  `https://image.tmdb.org/t/p/w780${this.props.element.dettail.backdrop_path}` : "https://via.placeholder.com/800x700"}/>
+                <img className="show_image"  src={this.props.element.dettail.backdrop_path ? `https://image.tmdb.org/t/p/original${this.props.element.dettail.backdrop_path}` : "https://via.placeholder.com/1920x1080"} alt={this.props.element.dettail.name} />
                 {
-                    this.props.auth.user ?
-                    <div className="modal_bg"><div className="modal"><p id="message"></p> <button onClick={this.closeModal}>ok</button></div></div> : null
+                    this.props.element.dettail.name.length <= 26 ?
+                    <div className="show_title">
+                        <h1>{this.props.element.dettail.name}</h1>
+                        {this.props.element.dettail.name === this.props.element.dettail.original_title ? null : <h2>{this.props.element.dettail.original_title}</h2>}
+                    </div> :
+                    <div className="show_title-m">
+                        <h1>{this.props.element.dettail.name}</h1>
+                        {this.props.element.dettail.name === this.props.element.dettail.original_title ? null : <h2>{this.props.element.dettail.original_title}</h2>}
+                    </div>
                 }
-                {
-                    this.props.element.dettail.backdrop_path != null ?
-                    <picture>
-                    {
-                        this.props.auth.user ?
-                        !this.state.onList ? <button className="btn_list" onClick={this.like}><i className="fas fa-plus"></i></button> : <button className="btn_list" onClick={this.like}><i className="fas fa-trash-alt"></i></button> 
-                        : null
-                    }
-                        <source  media="(max-width: 500px)" srcSet={`https://image.tmdb.org/t/p/w500${this.props.element.dettail.backdrop_path}`} />
-                        <source media="(max-width: 780px)" srcSet={`https://image.tmdb.org/t/p/w780${this.props.element.dettail.backdrop_path}`}/>
-                        <img className="show_image"  src={`https://image.tmdb.org/t/p/original${this.props.element.dettail.backdrop_path}`} alt={this.props.element.dettail.name} />
-                        {
-                            this.props.element.dettail.name.length <= 20 ?
-                            <div className="show_title">
-                                <h1>{this.props.element.dettail.name}</h1>
-                                {this.props.element.dettail.name === this.props.element.dettail.original_name ? null : <h2>{this.props.element.dettail.original_name}</h2>}
-                            </div> :
-                            <div className="show_title-m">
-                                <h1>{this.props.element.dettail.name}</h1>
-                                {this.props.element.dettail.name === this.props.element.dettail.original_name ? null : <h2>{this.props.element.dettail.original_name}</h2>}
-                            </div>
-                        }
-                    </picture> :
-                    <picture>
-                    {
-                        this.props.auth.user ?
-                        !this.state.onList ? <button className="btn_list" onClick={this.like}><i className="fas fa-plus"></i></button> : <button className="btn_list" onClick={this.like}><i className="fas fa-trash-alt"></i></button> 
-                        : null
-                    }
-                        <source  media="(max-width: 500px)" srcSet={`https://via.placeholder.com/500x700`} />
-                        <source media="(max-width: 780px)" srcSet={`https://via.placeholder.com/800x700`}/>
-                        <img className="show_image"  src={`https://via.placeholder.com/1920x1080`} alt="placeholder" />
-                        {
-                            this.props.element.dettail.name.length <= 20 ?
-                            <div className="show_title">
-                                <h1>{this.props.element.dettail.name}</h1>
-                                {this.props.element.dettail.name === this.props.element.dettail.original_name ? null : <h2>{this.props.element.dettail.original_name}</h2>}
-                            </div> :
-                            <div className="show_title-m">
-                                <h1>{this.props.element.dettail.name}</h1>
-                                {this.props.element.dettail.name === this.props.element.dettail.original_name ? null : <h2>{this.props.element.dettail.original_name}</h2>}
-                            </div>
-                        }
-                    </picture>
-                }
+            </picture> 
                 <div className="show_section">
                     <h3 className="show_section--title" onClick={this.openSection}>Plot</h3>
                     {

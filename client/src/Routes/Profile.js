@@ -20,6 +20,7 @@ class Profile extends Component {
         if(this.props.auth.user){
             this.setState({i: 0});
             this.loopMovie();
+            this.loopSeries();
         }
     }
 
@@ -27,12 +28,10 @@ class Profile extends Component {
         if(this.props.auth.user){
             if(this.props.auth.user.movies === null || this.props.auth.user.movies === undefined  ){
                 this.setState({movies: [], load: false, y: 0});
-                this.loopSeries();
                 return -1;
             }
             if(  this.state.i === this.props.auth.user.movies.length ){
                 this.setState({movies: this.state.movies});
-                this.loopSeries();
                 return -1;
             }
 
