@@ -50,7 +50,7 @@ class Login extends Component  {
                         </div>
                         <div className="formGroup">
                             <label forhtml="password">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="Write your username" onChange={this.onChange} />
+                            <input type="password" id="password" name="password" placeholder="Write your password" onChange={this.onChange} />
                         </div>
                         <button className="btn-form">LOGIN</button>
                     </form>

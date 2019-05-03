@@ -29,12 +29,7 @@ class Navbar extends Component {
                         {
                             this.props.auth.isAuthenticated ?
                             <NavLink to="/profile" exact>
-                                <picture>
-                                    <source  media="(max-width: 500px)" srcSet={`https://via.placeholder.com/30`} />
-                                    <source media="(max-width: 780px)" srcSet={`https://via.placeholder.com/40`}/>
-                                    <source media="(max-width: 1280px)" srcSet={`https://via.placeholder.com/40`} />
-                                    <img src="https://via.placeholder.com/40" alt="icon" />
-                                </picture>
+                                <img src="https://via.placeholder.com/30" alt="icon" />
                                 <p>{this.props.auth.user.name}</p>
                             </NavLink> :
                             <NavLink to="/register" exact><p className="account_nav">Register</p></NavLink>

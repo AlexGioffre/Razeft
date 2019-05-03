@@ -83,10 +83,10 @@
     transform: translateX(-50%);
 }
 
-.container_show picture .btn_list {
+.container_show  .btn_list {
     position: absolute;
     right: 1rem;
-    top:-19rem;
+    top:6rem;
     border: none;
     background: #333;
     border-radius: 4px;
@@ -96,13 +96,14 @@
     font-size: 1rem;
     padding: .75rem .75rem;
     transition: all .25s ease-in;
+    z-index: 100;
 }
 
-.container_show picture .btn_list:focus{
+.container_show  .btn_list:focus{
     outline: none;
 }
 
-.container_show picture .btn_list:active{
+.container_show  .btn_list:active{
     border: 1px solid #01d277;
     background: #fff;
     transition: all .25s ease-in;
