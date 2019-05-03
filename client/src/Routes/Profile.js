@@ -24,56 +24,60 @@ class Profile extends Component {
     }
 
     loopMovie = () => {
-        this.setState({i: 0})
-        if(this.props.auth.user.movies === null || this.props.auth.user.movies === undefined  ){
-            this.setState({movies: [], load: false, y: 0});
-            this.loopSeries();
-            return -1;
-        }
-        if(  this.state.i === this.props.auth.user.movies.length ){
-            this.setState({movies: this.state.movies});
-            this.loopSeries();
-            return -1;
-        }
+        if(this.props.auth.user){
+            this.setState({i: 0})
+            if(this.props.auth.user.movies === null || this.props.auth.user.movies === undefined  ){
+                this.setState({movies: [], load: false, y: 0});
+                this.loopSeries();
+                return -1;
+            }
+            if(  this.state.i === this.props.auth.user.movies.length ){
+                this.setState({movies: this.state.movies});
+                this.loopSeries();
+                return -1;
+            }
 
-        fetch(`/api/movieId/${this.props.auth.user.movies[this.state.i]}`,{
-            headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-         }
-        })
-        .then(response => response.json())
-        .then(movies =>  {
-            this.setState({movies: this.state.movies.concat(movies.dettail)})
-            this.setState({i: this.state.i + 1});
-            this.loopMovie()
-        })
-        .catch(err => console.log(err));
+            fetch(`/api/movieId/${this.props.auth.user.movies[this.state.i]}`,{
+                headers : {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+            })
+            .then(response => response.json())
+            .then(movies =>  {
+                this.setState({movies: this.state.movies.concat(movies.dettail)})
+                this.setState({i: this.state.i + 1});
+                this.loopMovie()
+            })
+            .catch(err => console.log(err));
+        }
     }
 
     loopSeries = () => {
-        if(this.props.auth.user.tvseries === null || this.props.auth.user.tvseries === undefined ){
-            this.setState({series: [], load: true});
-            return -1;
-        }
-        if( this.state.y === this.props.auth.user.tvseries.length){
-            this.setState({series: this.state.series, load: true});
-            return -1;
-        }
-        fetch(`/api/seriesId/${this.props.auth.user.tvseries[this.state.y]}`,{
-            headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-         }
-        })
-        .then(response => response.json())
-        .then(shows =>  {
+        if(this.props.auth.user){
+            if(this.props.auth.user.tvSeries === null || this.props.auth.user.tvSeries === undefined ){
+                this.setState({series: [], load: true});
+                return -1;
+            }
+            if( this.state.y === this.props.auth.user.tvSeries.length){
+                this.setState({series: this.state.series, load: true});
+                return -1;
+            }
+            fetch(`/api/seriesId/${this.props.auth.user.tvSeries[this.state.y]}`,{
+                headers : {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+            })
+            .then(response => response.json())
+            .then(shows =>  {
 
-            this.setState({series: this.state.series.concat(shows.dettail)})
-            this.setState({y: this.state.y + 1});
-            this.loopSeries()
-        })
-        .catch(err => console.log('series'));
+                this.setState({series: this.state.series.concat(shows.dettail)})
+                this.setState({y: this.state.y + 1});
+                this.loopSeries()
+            })
+            .catch(err => console.log('series'));
+        }
     }
 
     render(){
