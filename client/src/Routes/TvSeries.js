@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TvSeries from '../components/TvSeries/tvSeries';
-
+import Loading from '../components/Loading/Loading';
 class TvSeriesPage extends Component {
     constructor() {
         super();
@@ -40,7 +40,7 @@ class TvSeriesPage extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <h1 className="loader">Loading</h1> : <TvSeries  element={this.props.data.series} />
+            !this.state.isLoad ? <Loading /> : <TvSeries  element={this.props.data.series} />
         )
     }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ProfileComponent from '../components/Profile/Profile';
 import {Redirect} from 'react-router-dom';
-
+import Loading from '../components/Loading/Loading';
       
 class Profile extends Component {
 
@@ -56,7 +56,6 @@ class Profile extends Component {
 
     loopSeries = () => {
         if(this.props.auth.user){
-            console.log(this.props.auth.user.tvseries)
             if(this.props.auth.user.tvseries === null){
                 this.setState({series: [], load: true});
                 return -1;
@@ -85,7 +84,7 @@ class Profile extends Component {
     render(){
         return(
             !this.props.auth.isAuthenticated ? <Redirect to="/" /> :
-            !this.state.load ? <h1 className="loader">Loading</h1> :
+            !this.state.load ? <Loading /> :
             <ProfileComponent auth={this.props.auth} movies={this.state.movies} series={this.state.series} />
         )
     }

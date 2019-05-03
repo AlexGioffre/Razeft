@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Movies from '../components/Movies/Movies';
-
+import Loading from '../components/Loading/Loading';
 class MoviesPage extends Component {
     constructor() {
         super();
@@ -41,7 +41,7 @@ class MoviesPage extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <h1 className="loader">Loading</h1> : <Movies element={this.props.data.movies}/>
+            !this.state.isLoad ? <Loading /> : <Movies element={this.props.data.movies}/>
         )
     }
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MovieDettails from '../components/MovieDettails/MovieDettails';
-
+import Loading from '../components/Loading/Loading';
 class MovieDettailsRouter extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +23,7 @@ class MovieDettailsRouter extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <h1>Loading...</h1> : <MovieDettails messlikeMovie={this.props.messlikeMovie} loadUser={this.props.loadUser} likeMovie={this.props.likeMovie} auth={this.props.auth} element={this.props.data.movie}/>
+            !this.state.isLoad ? <Loading /> : <MovieDettails messlikeMovie={this.props.messlikeMovie} loadUser={this.props.loadUser} likeMovie={this.props.likeMovie} auth={this.props.auth} element={this.props.data.movie}/>
         )
     }
 }

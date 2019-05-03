@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TvDettails from '../components/TvDettails/TvDettails';
-
+import Loading from '../components/Loading/Loading';
 class TvDettailsRoute extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ class TvDettailsRoute extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <h1>Loading...</h1> : <TvDettails messlikeSeries={this.props.messlikeSeries} loadUser={this.props.loadUser} likeSeries={this.props.likeSeries} auth={this.props.auth} element={this.props.data.series}/>
+            !this.state.isLoad ? <Loading /> : <TvDettails messlikeSeries={this.props.messlikeSeries} loadUser={this.props.loadUser} likeSeries={this.props.likeSeries} auth={this.props.auth} element={this.props.data.series}/>
         )
     }
 }
