@@ -74,7 +74,6 @@ class TvDettails extends Component {
     render() {
         return(
             <div className="container_show">
-            <div className="container_show">
             {
                 this.props.auth.user ?
                 <div className="modal_bg"><div className="modal"><p id="message"></p> <button onClick={this.closeModal}>ok</button></div></div> : null
