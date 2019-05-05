@@ -17,7 +17,7 @@ const GalleryDettail = ({data}) => {
   
   const handleOnDragStart = e => e.preventDefault();
   return (
-    <AliceCarousel mouseDragEnabled  responsive={responsive}  dotsDisabled={true}>
+    <AliceCarousel   responsive={responsive}  dotsDisabled={true}>
       {
         data.map((ele, index) => {
           return(

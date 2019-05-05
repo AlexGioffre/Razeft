@@ -29,8 +29,9 @@ class Navbar extends Component {
                         {
                             this.props.auth.isAuthenticated ?
                             <NavLink to="/profile" exact>
-                                <img src="https://via.placeholder.com/30" alt="icon" />
-                                <p>{this.props.auth.user.name}</p>
+                                <div className="icon_container">
+                                    <p>{this.props.auth.user.name.substring(0, 1)}</p>
+                                </div>
                             </NavLink> :
                             <NavLink to="/register" exact><p className="account_nav">Register</p></NavLink>
                         }

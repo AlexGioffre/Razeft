@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const dataControllers = require('../../controllers/data');
+const homeControllers = require('../../controllers/home');
 
 router.get('/', (req, res) => {
-    dataControllers.getDatas(req, res);
+    homeControllers.getDatas(req, res);
 })
 
 module.exports = router;

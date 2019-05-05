@@ -79,11 +79,11 @@ class App extends Component {
               <Route exact path="/"  render={(routeProps ) => <Home  data={this.props.homeShows}  onGetShows={this.props.onGetShows}  {...routeProps} />}/>
               <Route exact path="/movies" render={(routeProps) => <MoviesPage data={this.props.moviesShows} onGetMovies={this.props.onGetMovies} {...routeProps} /> }/>
               <Route exact path="/tvSeries" render={(routeProps) => <TvSeriesPage   data={this.props.seriesShows} onGetSeries={this.props.onGetSeries} {...routeProps}/>}/>
-              <Route exact path="/tv/:id"  render={(routeProps) => <TvDettailsRoute key={routeProps.match.params.id} loadUser={this.props.loadUser} auth={this.props.auth} messlikeSeries={this.props.seriesLike} likeSeries={this.props.likeSeries} data={this.props.serieDettail} serieDettail={this.props.onGetSeriesDettail} {...routeProps}/>}/>
-              <Route exact path="/movie/:id"  render={(routeProps) => <MovieDettailsRouter likeMovie={this.props.likeMovie} loadUser={this.props.loadUser} messlikeMovie={this.props.movieLike} key={routeProps.match.params.id} data={this.props.movieDettail} auth={this.props.auth} movieDettail={this.props.onGetMovieDettail} {...routeProps}/>}/>
+              <Route exact path="/tv/:id"  render={(routeProps) => <TvDettailsRoute key={routeProps.match.params.id} auth={this.props.auth} messlikeSeries={this.props.seriesLike} likeSeries={this.props.likeSeries} data={this.props.serieDettail} serieDettail={this.props.onGetSeriesDettail} {...routeProps}/>}/>
+              <Route exact path="/movie/:id"  render={(routeProps) => <MovieDettailsRouter likeMovie={this.props.likeMovie} messlikeMovie={this.props.movieLike} key={routeProps.match.params.id} data={this.props.movieDettail} auth={this.props.auth} movieDettail={this.props.onGetMovieDettail} {...routeProps}/>}/>
               <Route exact path="/register" render={(routeProps) => <Register auth={this.props.auth} error={this.props.error} clearErrors={this.props.clearErrors} register={this.props.register} {...routeProps}/>} />
               <Route exact path="/login" render={(routeProps) => <Login {...routeProps}  auth={this.props.auth}  error={this.props.error} clearErrors={this.props.clearErrors} login={this.props.login}/> } />
-              <Route exact path="/profile" render={(routeProps) => <Profile {...routeProps} auth={this.props.auth} onGetmovieDettail={this.props.onGetMovieDettail} movieDettail={this.props.movieDettail} />} />
+              <Route exact path="/profile" render={(routeProps) => <Profile {...routeProps}  loadUser={this.props.loadUser} auth={this.props.auth} onGetmovieDettail={this.props.onGetMovieDettail} movieDettail={this.props.movieDettail} />} />
             </Switch>
         </div>
       </Router>

@@ -56,7 +56,6 @@ class TvDettails extends Component {
     like = () => {
         if(this.props.auth.user){
             this.props.likeSeries(this.props.element.dettail.id);
-            this.props.loadUser();
             this.setState({onList: !this.state.onList});
         }
     }

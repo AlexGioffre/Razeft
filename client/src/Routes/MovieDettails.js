@@ -23,7 +23,7 @@ class MovieDettailsRouter extends Component {
 
     render() {
         return (
-            !this.state.isLoad ? <Loading /> : <MovieDettails messlikeMovie={this.props.messlikeMovie} loadUser={this.props.loadUser} likeMovie={this.props.likeMovie} auth={this.props.auth} element={this.props.data.movie}/>
+            !this.state.isLoad ? <Loading /> : <MovieDettails messlikeMovie={this.props.messlikeMovie} likeMovie={this.props.likeMovie} auth={this.props.auth} element={this.props.data.movie}/>
         )
     }
 }

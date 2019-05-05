@@ -6,7 +6,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-const data = require('./routes/api/data');
+const home = require('./routes/api/home');
 const movies = require('./routes/api/movies');
 const series = require('./routes/api/series');
 const search = require('./routes/api/search');
@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(compression());
 
-app.use('/api/data', data);
+app.use('/api/home', home);
 app.use('/api/movies', movies);
 app.use('/api/series', series);
 app.use('/api/search', search);

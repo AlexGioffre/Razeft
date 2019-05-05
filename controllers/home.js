@@ -1,7 +1,7 @@
 const axios = require('axios');
 const keys = require('../config/index');
 
-let datas = {};
+let home = {};
 
 const getDatas = (req, res) => {
     axios.get('https://api.themoviedb.org/3/tv/popular', {
@@ -10,13 +10,13 @@ const getDatas = (req, res) => {
         language: "en-US"}
     })
     .then(response => {
-        datas.popularSeries = [];
+        home.popularSeries = [];
         response.data.results.forEach(data => {
             if(data.poster_path != null && data.backdrop_path != null){
-                datas.popularSeries.push(data);
+                home.popularSeries.push(data);
             }
         });
-        return datas;
+        return home;
     })
     .then(data => {
         axios.get('https://api.themoviedb.org/3/movie/popular', {
@@ -26,13 +26,13 @@ const getDatas = (req, res) => {
             }
         })
         .then(response => {
-            datas.popularMovies = [];
+            home.popularMovies = [];
             response.data.results.forEach(data => {
                 if(data.poster_path != null && data.backdrop_path != null){
-                    datas.popularMovies.push(data);
+                    home.popularMovies.push(data);
                 }
             })
-            return datas;
+            return home;
         })
         .then(data => {
             axios.get('https://api.themoviedb.org/3/discover/movie', {
@@ -44,13 +44,13 @@ const getDatas = (req, res) => {
                 }
             })
             .then(response => {
-                datas.horrorMovies = [];
+                home.horrorMovies = [];
                 response.data.results.forEach(data => {
                     if(data.poster_path != null && data.backdrop_path != null){
-                        datas.horrorMovies.push(data);
+                        home.horrorMovies.push(data);
                     }
                 })
-                return datas;
+                return home;
             })
             .then(data => {
                 axios.get('https://api.themoviedb.org/3/discover/tv', {
@@ -63,13 +63,13 @@ const getDatas = (req, res) => {
                     }
                 })
                 .then(response => {
-                    datas.anime = [];
+                    home.anime = [];
                     response.data.results.forEach(data => {
                         if(data.poster_path != null && data.backdrop_path != null){
-                            datas.anime.push(data);
+                            home.anime.push(data);
                         }
                     })
-                    return res.json(datas);
+                    return res.json(home);
                 })
                 .catch(err => console.log('Problem'));
             })
