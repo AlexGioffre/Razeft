@@ -22,9 +22,8 @@ class Profile extends Component {
             if(this.props.auth.user){
                 this.setState({i: 0});
                 this.loopMovie();
-
-            }   
-       }, 3000);
+            }
+       }, 2000);
     }
 
     loopMovie = () => {
