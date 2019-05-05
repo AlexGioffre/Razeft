@@ -37,7 +37,7 @@ app.use('/api/movieId', movieId);
 app.use('/api/seriesId', seriesId);
 app.use('/api/signup', register);
 app.use('/api/signin', login);
-app.use('/api/profile', profile, {'maxage': '2h'});
+app.use('/api/profile', profile);
 
 if(process.env.NODE_ENV === 'production'){
 

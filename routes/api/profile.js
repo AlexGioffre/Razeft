@@ -5,7 +5,7 @@ const control = require('../../middleware/auth');
 
 router.get('/', control.auth, (req, res) => {
     profileControllers.getUser(req, res);
-})
+}, {'maxage': "2h"})
 
 
 module.exports = router;
